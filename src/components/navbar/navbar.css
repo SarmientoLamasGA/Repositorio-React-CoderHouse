@@ -1,13 +1,11 @@
 nav {
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: space-between;
   top: 0;
   width: 100%;
-  padding-left: 10%;
-  padding-right: 10%;
   height: 100px;
-  background-color: white;
+  background-color: darkgray;
 }
 
 .logoContainer {
