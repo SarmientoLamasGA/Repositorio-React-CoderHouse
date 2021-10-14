@@ -7,7 +7,7 @@ function CartWidget() {
       <div className="cartContainer">
         <img
           className="cartLogo"
-          src="../../images/cartLogo.svg"
+          src="images/cartLogo.svg"
           alt="Logo carrito"
         />
       </div>

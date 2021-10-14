@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/navbar/navbar";
-import ItemConainerList from "./components/itemContainerList/itemContainerList";
+import ItemListContainer from "./components/itemListContainer/itemListContainer";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Navbar />
       </header>
       <main>
-        <ItemConainerList titulo="Este es el titulo de la seccion" />
+        <ItemListContainer titulo="Item List Container" />
       </main>
     </div>
   );
