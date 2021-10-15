@@ -1,10 +1,15 @@
 .containerList {
   background-color: blanchedalmond;
   height: 100vh;
+  border: dotted;
+  border-color: pink;
 }
 .title {
   font-size: 30px;
   margin: auto;
   padding: auto;
   text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-decoration-color: red;
 }
