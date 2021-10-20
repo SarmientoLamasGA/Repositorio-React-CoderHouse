@@ -1,0 +1,8 @@
+.counterDiv {
+  background-color: cornsilk;
+  outline-style: groove;
+  outline-color: crimson;
+  width: 30%;
+  display: flex;
+  justify-self: center;
+}
