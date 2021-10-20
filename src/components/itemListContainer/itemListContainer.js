@@ -6,8 +6,8 @@ function ItemListContainer(props) {
   return (
     <div className="containerList">
       <h1 className="title">{props.titulo}</h1>
-      <div>
-        <ItemCount className="itemCount" initial={1} stock={5} />
+      <div className="itemCount">
+        <ItemCount initial={1} stock={5} />
       </div>
     </div>
   );
