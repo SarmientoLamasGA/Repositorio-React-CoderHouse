@@ -14,18 +14,24 @@ function ItemCount(props) {
 
   return (
     <div className="counterDiv">
-      <div className="button">
-        <button className="subt" onClick={resta}>
-          -
-        </button>
+      <p className="product">Producto X</p>
+      <div className="interact">
+        <div className="buttonDiv">
+          <button className="subt" onClick={resta}>
+            -
+          </button>
+        </div>
+        <div className="number">
+          <p>Cantidad de productos: {count} </p>
+        </div>
+        <div className="buttonDiv">
+          <button className="sum" onClick={suma}>
+            +
+          </button>
+        </div>
       </div>
-      <div className="number">
-        <p>Cantidad de productos: {count} </p>
-      </div>
-      <div className="button">
-        <button className="sum" onClick={suma}>
-          +
-        </button>
+      <div className="addContainer">
+        <button className="addToCart">Agregar al carrito</button>
       </div>
     </div>
   );

@@ -3,13 +3,18 @@
   height: 100vh;
   border: dotted;
   border-color: pink;
+  display: flex;
+  flex-direction: column;
 }
 .title {
   font-size: 30px;
-  margin: auto;
   padding: auto;
   text-align: center;
   text-decoration: underline;
   text-transform: uppercase;
   text-decoration-color: red;
+}
+
+.itemCount {
+  align-self: center;
 }

@@ -7,7 +7,7 @@ function ItemListContainer(props) {
     <div className="containerList">
       <h1 className="title">{props.titulo}</h1>
       <div>
-        <ItemCount initial={1} stock={5} />
+        <ItemCount className="itemCount" initial={1} stock={5} />
       </div>
     </div>
   );
