@@ -5,16 +5,6 @@ import products from "../../products.json";
 
 function List() {
   const [productos, setProductos] = useState([]);
-  /*const a = new Promise((resolve, reject) => {
-    const b = true;
-    setTimeout(() => {
-      if (b) {
-        resolve("funciona");
-      }
-    }, 1000);
-  });
-
-  a.then((res) => console.log(res)).catch((err) => console.log(err));*/
 
   const getCatalogo = (catalogo) =>
     new Promise((resolve, reject) => {
@@ -33,24 +23,6 @@ function List() {
       .catch((err) => console.log(err));
   }, []);
 
-  /*
-  const getCatalogo = (catalogo) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (catalogo) {
-          resolve(catalogo, console.log("Catalogo encontrado"));
-        } else {
-          reject("Catalogo faltante");
-        }
-      }, 5000);
-    });
-
-  useEffect(() => {
-    getCatalogo(products)
-      .then((resolve) => setProductos(resolve))
-      .catch((error) => console.log(error));
-  }, []);*/
-
   return (
     <ul className="list">
       <li className="item">
@@ -58,6 +30,7 @@ function List() {
           ? productos.map((producto) => (
               <Item
                 name={producto.name}
+                photo={producto.photo}
                 price={producto.price}
                 key={producto.id}
               />

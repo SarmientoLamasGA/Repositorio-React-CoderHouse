@@ -8,7 +8,7 @@ function Item(producto) {
     <div className="productCard">
       <p className="product">{producto.name}</p>
       <div className="imgContainer">
-        <img alt="IMAGEN"></img>
+        <img src={producto.photo} alt="IMAGEN"></img>
         <p className="price">{producto.price}</p>
       </div>
       <div className="productInteractive">
