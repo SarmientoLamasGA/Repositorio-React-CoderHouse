@@ -2,8 +2,25 @@
   margin: 5px;
 }
 
+.productName {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+}
+.imgProduct {
+  justify-self: center;
+}
+
 .imgProduct {
   height: 250px;
   width: 250px;
-  aspect-ratio: 1/1;
+}
+
+.price {
+  text-align: center;
 }
