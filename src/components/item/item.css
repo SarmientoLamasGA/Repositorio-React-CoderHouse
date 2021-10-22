@@ -1,3 +1,9 @@
 .productCard {
   margin: 5px;
 }
+
+.imgProduct {
+  height: 250px;
+  width: 250px;
+  aspect-ratio: 1/1;
+}

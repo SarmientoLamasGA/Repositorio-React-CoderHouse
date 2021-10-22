@@ -5,10 +5,10 @@ import ItemCount from "../itemCount/itemCount";
 
 function Item(producto) {
   return (
-    <div className="productCard">
+    <div key={producto.id} className="productCard">
       <p className="product">{producto.name}</p>
       <div className="imgContainer">
-        <img src={producto.photo} alt="IMAGEN"></img>
+        <img className="imgProduct" src={producto.photo} alt="IMAGEN"></img>
         <p className="price">{producto.price}</p>
       </div>
       <div className="productInteractive">

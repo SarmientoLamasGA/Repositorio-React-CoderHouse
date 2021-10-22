@@ -1,5 +1,6 @@
 .list {
   display: flex;
+  justify-content: space-around;
 }
 .item {
   list-style: none;

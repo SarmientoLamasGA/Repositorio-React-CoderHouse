@@ -3,7 +3,7 @@ import Item from "../item/item";
 import "./itemList.css";
 import products from "../../products.json";
 
-function List() {
+function ItemList() {
   const [productos, setProductos] = useState([]);
 
   const getCatalogo = (catalogo) =>
@@ -11,6 +11,7 @@ function List() {
       setTimeout(() => {
         if (catalogo) {
           resolve(catalogo);
+          console.log(products);
         } else {
           reject("Catalogo no encontrado");
         }
@@ -24,21 +25,19 @@ function List() {
   }, []);
 
   return (
-    <ul className="list">
-      <li className="item">
-        {productos.length
-          ? productos.map((producto) => (
-              <Item
-                name={producto.name}
-                photo={producto.photo}
-                price={producto.price}
-                key={producto.id}
-              />
-            ))
-          : "Cargando producto"}
-      </li>
-    </ul>
+    <div className="list">
+      {productos.length
+        ? productos.map((producto) => (
+            <Item
+              key={producto.id}
+              name={producto.name}
+              photo={producto.photo}
+              price={producto.price}
+            />
+          ))
+        : "Cargando producto"}
+    </div>
   );
 }
 
-export default List;
+export default ItemList;
