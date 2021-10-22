@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+}
+.item {
+  list-style: none;
+  background-color: pink;
+  outline-style: dashed;
+  outline-color: purple;
+  width: 30%;
+  margin: auto;
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "productos": [
+      {
+        "id": 1,
+        "name": "Kiwi",
+        "price": 300
+      },
+      {
+        "id": 2,
+        "name": "Cubo",
+        "price": 6000
+      },
+      {
+        "id": 3,
+        "name": "Lápiz",
+        "price": 30
+      }
+    ]
+  }
+]

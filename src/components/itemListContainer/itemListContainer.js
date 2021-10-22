@@ -1,14 +1,12 @@
 import React from "react";
 import "./itemListContainer.css";
-import ItemCount from "../itemCount/itemCount";
+import ItemList from "../itemList/itemList";
 
 function ItemListContainer(props) {
   return (
     <div className="containerList">
       <h1 className="title">{props.titulo}</h1>
-      <div className="itemCount">
-        <ItemCount initial={1} stock={5} />
-      </div>
+      <ItemList />
     </div>
   );
 }

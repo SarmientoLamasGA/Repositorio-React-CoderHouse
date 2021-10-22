@@ -14,7 +14,6 @@ function ItemCount(props) {
 
   return (
     <div className="counterDiv">
-      <p className="product">Producto X</p>
       <div className="interact">
         <div className="buttonDiv">
           <button className="subt" onClick={resta}>

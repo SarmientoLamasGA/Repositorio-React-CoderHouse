@@ -9,7 +9,7 @@ function App() {
         <Navbar />
       </header>
       <main>
-        <ItemListContainer titulo="Item List Container" />
+        <ItemListContainer titulo="Cartilla de productos" />
       </main>
     </>
   );
