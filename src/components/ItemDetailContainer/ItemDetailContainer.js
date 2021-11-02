@@ -4,13 +4,13 @@ import productos from "../../products.json";
 import "./ItemDetailContainer.css";
 
 function ItemDetailContainer() {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const getProducto = (item) =>
+  const getProducto = (product) =>
     new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (item) {
-          resolve(item);
+        if (product) {
+          resolve(product);
         } else {
           reject("Producto no encontrado");
         }
@@ -19,16 +19,20 @@ function ItemDetailContainer() {
 
   useEffect(() => {
     getProducto(productos)
-      .then((res) => setSelectedItem(res[0]))
+      .then((res) => setSelectedProduct(res[0]))
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(selectedItem);
+  console.log(selectedProduct);
 
   return (
     <div className="itemDetailContainer">
       <h1 className="itemDetailContainerTitle">Item Detail Container</h1>
-      {selectedItem ? <ItemDetail item={selectedItem} /> : "Cargando vista"}
+      {selectedProduct ? (
+        <ItemDetail item={selectedProduct} />
+      ) : (
+        "Cargando vista"
+      )}
     </div>
   );
 }
