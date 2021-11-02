@@ -24,3 +24,10 @@
 .price {
   text-align: center;
 }
+
+.seeMore {
+  width: 100%;
+  background-color: white;
+  border-color: blue;
+  border-radius: 3px;
+}

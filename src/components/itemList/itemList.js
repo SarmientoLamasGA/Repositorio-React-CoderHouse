@@ -11,11 +11,10 @@ function ItemList() {
       setTimeout(() => {
         if (catalogo) {
           resolve(catalogo);
-          console.log(products);
         } else {
           reject("Catalogo no encontrado");
         }
-      }, 500);
+      }, 1000);
     });
 
   useEffect(() => {

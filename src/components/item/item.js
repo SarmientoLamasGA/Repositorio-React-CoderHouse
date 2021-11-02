@@ -1,7 +1,6 @@
 import React from "react";
 import "../itemCount/itemCount";
 import "./item.css";
-import ItemCount from "../itemCount/itemCount";
 
 function Item({ id, name, photo, price }) {
   return (
@@ -10,10 +9,8 @@ function Item({ id, name, photo, price }) {
       <div className="imgContainer">
         <img className="imgProduct" src={photo} alt={name}></img>
       </div>
-      <p className="price">{price}</p>
-      <div className="productInteractive">
-        <ItemCount initial={1} stock={5} />
-      </div>
+      <p className="price">${price}</p>
+      <button className="seeMore">Ver Detalles</button>
     </div>
   );
 }
