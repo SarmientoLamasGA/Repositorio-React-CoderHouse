@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/navbar/navbar";
 import ItemListContainer from "./components/itemListContainer/itemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       <main>
         <ItemListContainer titulo="Cartilla de productos" />
       </main>
+      <section>
+        <ItemDetailContainer />
+      </section>
     </>
   );
 }

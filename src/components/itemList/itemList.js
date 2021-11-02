@@ -32,7 +32,6 @@ function ItemList() {
               key={producto.id}
               name={producto.name}
               photo={producto.photo}
-              description={producto.description}
               price={producto.price}
             />
           ))

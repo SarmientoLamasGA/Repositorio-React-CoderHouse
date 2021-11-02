@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Bolas de mono",
+    "name": "Kiwi",
     "photo": "https://static1.abc.es/media/familia/2018/04/03/kiwi-kC0--1240x698@abc-kyDF--1240x698@abc.jpg",
-    "description": "lorem",
+    "description": "El kiwi es la baya de la enredadera Actinidia deliciosa. Es originaria de una gran área de China, sobre todo de los bosques del valle del río Yangtsé.",
     "price": 300
   },
   {
     "id": 2,
     "name": "Cubo",
     "photo": "https://img.microsiervos.com/juegos/cube.jpg",
-    "description": "lorem",
+    "description": "Cubo o hexaedro regular es un poliedro limitado por seis caras cuadradas congruentes. Es uno de los denominados sólidos platónicos. Un cubo, además de ser un hexaedro, puede ser clasificado también como paralelepípedo, recto y rectangular, pues todas sus caras son cuadrados y paralelos dos a dos.",
 
     "price": 6000
   },
@@ -18,7 +18,7 @@
     "id": 3,
     "name": "Lápiz",
     "photo": "https://www.faber-castell.com.pe/-/media/Products/Product-Repository/CASTELL-9000-Jumbo/24-24-01-Pencil/119306-Graphite-pencil-CASTELL-9000-Jumbo-6B/Images/119306_0_PM99.ashx?bc=ffffff&as=0&h=900&w=900&hash=A39252A12A3076BABA51A7A2ECDDE52AEE236124",
-    "description": "lorem",
+    "description": "Un instrumento de escritura",
     "price": 30
   }
 ]

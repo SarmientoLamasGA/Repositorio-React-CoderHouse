@@ -3,7 +3,7 @@ import "../itemCount/itemCount";
 import "./item.css";
 import ItemCount from "../itemCount/itemCount";
 
-function Item({ id, name, photo, price, description }) {
+function Item({ id, name, photo, price }) {
   return (
     <div key={id} className="productCard">
       <p className="productName">{name}</p>
@@ -11,7 +11,6 @@ function Item({ id, name, photo, price, description }) {
         <img className="imgProduct" src={photo} alt={name}></img>
       </div>
       <p className="price">{price}</p>
-      <p className="description">{description}</p>
       <div className="productInteractive">
         <ItemCount initial={1} stock={5} />
       </div>
