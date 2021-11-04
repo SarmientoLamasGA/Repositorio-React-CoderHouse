@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Kiwis",
     "photo": "https://static1.abc.es/media/familia/2018/04/03/kiwi-kC0--1240x698@abc-kyDF--1240x698@abc.jpg",
     "description": "El kiwi es la baya de la enredadera Actinidia deliciosa. Es originaria de una gran área de China, sobre todo de los bosques del valle del río Yangtsé.",
@@ -8,7 +8,7 @@
     "category": "Frutas"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Calabaza",
     "photo": "https://www.saladeprensa.org/wp-content/uploads/calabaza-beneficios-contraindicaciones.jpg",
     "description": "La calabaza es el fruto de la calabacera, pertenece a una familia bien conocida en nuestras cocinas, las cucurbitáceas.",
@@ -16,7 +16,7 @@
     "category": "Hortalizas"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Arvejas",
     "photo": "https://www.gastronomiavasca.net/uploads/image/file/4233/garbanzo.jpg",
     "description": "El garbanzo es una especie de leguminosa adaptada a todos los continentes.",

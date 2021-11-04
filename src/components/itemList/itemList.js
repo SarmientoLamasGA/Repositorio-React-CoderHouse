@@ -8,8 +8,6 @@ function ItemList() {
   const { category } = useParams();
   const [productos, setProductos] = useState([]);
 
-  console.log(category);
-
   const getCatalogo = (catalogo) =>
     new Promise((resolve, reject) => {
       setTimeout(() => {

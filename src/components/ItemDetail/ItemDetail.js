@@ -3,6 +3,7 @@ import "./ItemDetail.css";
 import ItemCount from "../itemCount/itemCount";
 
 function ItemDetail(item) {
+  console.log(item + "objeto detail");
   return (
     <div className="itemContainer">
       {console.log(item)}
