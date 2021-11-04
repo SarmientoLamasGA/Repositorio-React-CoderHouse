@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../itemCount/itemCount";
 import "./item.css";
 
@@ -10,7 +11,9 @@ function Item({ id, name, photo, price }) {
         <img className="imgProduct" src={photo} alt={name}></img>
       </div>
       <p className="price">${price}</p>
-      <button className="seeMore">Ver Detalles</button>
+      <Link to={`/producto/${id}`}>
+        <button className="seeMore">Ver Detalles</button>
+      </Link>
     </div>
   );
 }

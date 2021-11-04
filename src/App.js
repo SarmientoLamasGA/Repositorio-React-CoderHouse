@@ -13,12 +13,13 @@ function App() {
         </header>
         <Switch>
           <Route exact path="/">
-            <>
-              <ItemListContainer titulo="Cartilla de productos" />
-            </>
-            <>
-              <ItemDetailContainer />
-            </>
+            <ItemListContainer titulo="Cartilla de productos" />
+          </Route>
+          <Route exact path="/category/:category">
+            <ItemListContainer />
+          </Route>
+          <Route exact path="/producto/:id">
+            <ItemDetailContainer />
           </Route>
         </Switch>
       </BrowserRouter>

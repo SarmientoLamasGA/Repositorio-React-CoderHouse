@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import Item from "../item/item";
 import "./itemList.css";
 import products from "../../products.json";
+import { useParams } from "react-router";
 
 function ItemList() {
+  const { category } = useParams();
   const [productos, setProductos] = useState([]);
+
+  console.log(category);
 
   const getCatalogo = (catalogo) =>
     new Promise((resolve, reject) => {
@@ -19,9 +23,13 @@ function ItemList() {
 
   useEffect(() => {
     getCatalogo(products)
-      .then((res) => setProductos(res))
+      .then((res) => {
+        category
+          ? setProductos(res.filter((prod) => prod.category === category))
+          : setProductos(products);
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }, [category]);
 
   return (
     <div className="list">
@@ -29,6 +37,7 @@ function ItemList() {
         ? productos.map((producto) => (
             <Item
               key={producto.id}
+              id={producto.id}
               name={producto.name}
               photo={producto.photo}
               price={producto.price}

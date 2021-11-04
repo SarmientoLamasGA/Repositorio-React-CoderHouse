@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import productos from "../../products.json";
+import products from "../../products.json";
 import "./ItemDetailContainer.css";
+import { useParams } from "react-router";
 
 function ItemDetailContainer() {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const { id } = useParams();
+  const [selectedProduct, setSelectedProduct] = useState();
+  console.log(id);
 
   const getProducto = (product) =>
     new Promise((resolve, reject) => {
@@ -18,12 +21,12 @@ function ItemDetailContainer() {
     });
 
   useEffect(() => {
-    getProducto(productos)
-      .then((res) => setSelectedProduct(res[0]))
+    getProducto(products)
+      .then((res) =>
+        setSelectedProduct(res.find((products) => products.id === id))
+      )
       .catch((err) => console.log(err));
-  }, []);
-
-  console.log(selectedProduct);
+  }, [id]);
 
   return (
     <div className="itemDetailContainer">
