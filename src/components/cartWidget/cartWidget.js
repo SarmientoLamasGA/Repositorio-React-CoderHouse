@@ -1,6 +1,6 @@
 import React from "react";
 import cartLogo from "../../images/cartLogo.svg";
-import "./cartWidget.css";
+import "./cartWidget.scss";
 
 function CartWidget() {
   return (

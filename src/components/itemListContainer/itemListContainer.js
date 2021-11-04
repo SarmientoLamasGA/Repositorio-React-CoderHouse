@@ -1,5 +1,5 @@
 import React from "react";
-import "./itemListContainer.css";
+import "./itemListContainer.scss";
 import ItemList from "../itemList/itemList";
 
 function ItemListContainer(props) {

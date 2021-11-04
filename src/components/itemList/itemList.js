@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Item from "../item/item";
-import "./itemList.css";
+import "./itemList.scss";
 import products from "../../products.json";
 import { useParams } from "react-router";
 

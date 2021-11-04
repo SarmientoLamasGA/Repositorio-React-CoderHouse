@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../itemCount/itemCount";
-import "./item.css";
+import "./item.scss";
 
 function Item({ id, name, photo, price }) {
   return (

@@ -1,12 +1,10 @@
 import React from "react";
-import "./ItemDetail.css";
+import "./ItemDetail.scss";
 import ItemCount from "../itemCount/itemCount";
 
 function ItemDetail(item) {
-  console.log(item + "objeto detail");
   return (
     <div className="itemContainer">
-      {console.log(item)}
       <div className="itemDetail-img-div">
         <img
           src={item.item.photo}
