@@ -5,11 +5,15 @@ function ItemCount(props) {
   const [count, setCount] = useState(props.initial);
   const resta = () => {
     if (count > props.initial) setCount(count - 1);
-    console.log(props.initial);
+    console.log(count);
   };
   const suma = () => {
     if (count < props.stock) setCount(count + 1);
-    console.log(props.stock);
+    console.log(count);
+  };
+
+  const triggerButton = () => {
+    props.onAdd(count);
   };
 
   return (
@@ -30,7 +34,9 @@ function ItemCount(props) {
         </div>
       </div>
       <div className="addContainer">
-        <button className="addToCart">Agregar al carrito</button>
+        <button className="addToCart" onClick={triggerButton}>
+          Agregar al carrito
+        </button>
       </div>
     </div>
   );

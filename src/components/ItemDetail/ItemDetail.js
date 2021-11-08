@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ItemDetail.scss";
 import ItemCount from "../itemCount/itemCount";
 
 function ItemDetail(item) {
+  const [flag, setFlag] = useState(true);
+  const [cartInner, setCartInner] = useState(0);
+
+  const onAdd = (counter) => {
+    setFlag(false);
+    setCartInner(counter);
+  };
+
   return (
     <div className="itemContainer">
       <div className="itemDetail-img-div">
@@ -15,9 +23,16 @@ function ItemDetail(item) {
       <div className="itemDetailDescription">
         <h3 className="itemDetailName">{item.item.name}</h3>
         <p>{item.item.description}</p>
-        <p className="itemDetailPrice">El Precio es de: {item.item.price}</p>
+        <p className="itemDetailPrice">Valor por kilo: {item.item.price}</p>
         <div className="productInteractive">
-          <ItemCount initial={1} stock={5} />
+          {flag ? (
+            <ItemCount initial={1} stock={5} onAdd={onAdd} />
+          ) : (
+            <>
+              <p>Productos en el carrito: {cartInner}</p>
+              <button>Continuar con la compra</button>
+            </>
+          )}
         </div>
       </div>
     </div>

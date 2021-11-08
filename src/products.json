@@ -12,7 +12,7 @@
     "name": "Calabaza",
     "photo": "https://www.saladeprensa.org/wp-content/uploads/calabaza-beneficios-contraindicaciones.jpg",
     "description": "La calabaza es el fruto de la calabacera, pertenece a una familia bien conocida en nuestras cocinas, las cucurbitáceas.",
-    "price": 6000,
+    "price": 180,
     "category": "Hortalizas"
   },
   {
@@ -20,7 +20,7 @@
     "name": "Garbanzos",
     "photo": "https://www.gastronomiavasca.net/uploads/image/file/4233/garbanzo.jpg",
     "description": "El garbanzo es una especie de leguminosa adaptada a todos los continentes.",
-    "price": 30,
+    "price": 110,
     "category": "Legumbres"
   }
 ]
