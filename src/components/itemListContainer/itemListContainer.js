@@ -1,6 +1,6 @@
 import React from "react";
-import "./itemListContainer.scss";
-import ItemList from "../itemList/itemList";
+import "./ItemListContainer.scss";
+import ItemList from "../ItemList/ItemList";
 
 function ItemListContainer(props) {
   return (

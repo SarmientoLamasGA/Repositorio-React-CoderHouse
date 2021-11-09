@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ItemDetail.scss";
-import ItemCount from "../itemCount/itemCount";
+import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetail(item) {
   const [flag, setFlag] = useState(true);

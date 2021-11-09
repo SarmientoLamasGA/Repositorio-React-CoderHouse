@@ -25,7 +25,7 @@ function ItemDetailContainer() {
       .catch((err) => console.log(err));
   }, [id]);
 
-  console.log("objeto " + selectedProduct);
+  console.log(selectedProduct);
   return (
     <div className="itemDetailContainer">
       <h1 className="itemDetailContainerTitle">Item Detail Container</h1>
