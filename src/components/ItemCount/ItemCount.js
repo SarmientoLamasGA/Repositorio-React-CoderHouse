@@ -5,11 +5,9 @@ function ItemCount(props) {
   const [count, setCount] = useState(props.initial);
   const resta = () => {
     if (count > props.initial) setCount(count - 1);
-    console.log(count);
   };
   const suma = () => {
     if (count < props.stock) setCount(count + 1);
-    console.log(count);
   };
 
   const triggerButton = () => {
