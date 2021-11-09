@@ -5,8 +5,8 @@ import products from "../../products.json";
 import { useParams } from "react-router";
 
 function ItemList() {
-  const { category } = useParams();
   const [productos, setProductos] = useState([]);
+  const { category } = useParams();
 
   const getCatalogo = (catalogo) =>
     new Promise((resolve, reject) => {
@@ -26,6 +26,7 @@ function ItemList() {
           ? setProductos(res.filter((prod) => prod.category === category))
           : setProductos(products);
       })
+      .then(setProductos([]))
       .catch((err) => console.log(err));
   }, [category]);
 
