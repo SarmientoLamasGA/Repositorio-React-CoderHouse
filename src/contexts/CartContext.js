@@ -6,10 +6,12 @@ export const useCart = () => useContext(CartContext);
 
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  console.log(cart);
 
-  const addItem = () => {
-    alert("click");
-    //setCart([]);
+  const addItem = (itemForCart) => {
+    console.log("addItem");
+    setCart(...[cart, itemForCart]);
+    console.log(cart);
   };
 
   const removeItem = (item) => {
@@ -24,7 +26,9 @@ function CartProvider({ children }) {
     //find
   };
   return (
-    <CartContext.Provider value={(cart, addItem, removeItem, clear, isInCart)}>
+    <CartContext.Provider
+      value={{ cart, addItem, removeItem, clear, isInCart }}
+    >
       {children}
     </CartContext.Provider>
   );

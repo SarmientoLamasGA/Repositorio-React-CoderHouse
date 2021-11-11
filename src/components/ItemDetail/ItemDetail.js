@@ -6,13 +6,21 @@ import { useCart } from "../../contexts/CartContext";
 function ItemDetail(item) {
   const [flag, setFlag] = useState(true);
   const [cartInner, setCartInner] = useState(0);
+  const [quantity, setQuantity] = useState();
+
+  const [itemForCart, setItemForCart] = useState();
 
   const { addItem } = useCart();
 
-  const onAdd = (counter) => {
+  const onAdd = (item, counter) => {
     setFlag(false);
     setCartInner(counter);
+    console.log("item " + item);
+    //context
+    setQuantity(counter);
+    setItemForCart(item);
     addItem();
+    console.log(item);
   };
 
   return (
