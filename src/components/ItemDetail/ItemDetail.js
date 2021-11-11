@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import "./ItemDetail.scss";
 import ItemCount from "../ItemCount/ItemCount";
+import { useCart } from "../../contexts/CartContext";
 
 function ItemDetail(item) {
   const [flag, setFlag] = useState(true);
   const [cartInner, setCartInner] = useState(0);
 
+  const { addItem } = useCart();
+
   const onAdd = (counter) => {
     setFlag(false);
     setCartInner(counter);
+    addItem();
   };
 
   return (
