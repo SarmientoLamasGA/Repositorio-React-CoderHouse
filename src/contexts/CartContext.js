@@ -6,25 +6,31 @@ export const useCart = () => useContext(CartContext);
 
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [foundItem, setFoundItem] = useState({});
   console.log(cart);
 
   const addItem = (itemForCart) => {
-    console.log("addItem");
-    setCart(...[cart, itemForCart]);
+    //isInCart + if + else
+    console.log("se activó addItem");
+    setCart([...cart, itemForCart]);
     console.log(cart);
   };
 
-  const removeItem = (item) => {
-    //find
+  const isInCart = (item) => {
+    //t/f
+    console.log(item);
+    setFoundItem(cart.find((item) => item.item.id === item));
+    console.log(foundItem);
+  };
+
+  const removeItem = () => {
+    //find + splice
   };
 
   const clear = () => {
     //cart[]
   };
 
-  const isInCart = () => {
-    //find
-  };
   return (
     <CartContext.Provider
       value={{ cart, addItem, removeItem, clear, isInCart }}

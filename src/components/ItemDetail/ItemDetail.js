@@ -6,21 +6,25 @@ import { useCart } from "../../contexts/CartContext";
 function ItemDetail(item) {
   const [flag, setFlag] = useState(true);
   const [cartInner, setCartInner] = useState(0);
-  const [quantity, setQuantity] = useState();
+  const [searchFor, setSearchFor] = useState({});
 
-  const [itemForCart, setItemForCart] = useState();
+  const { addItem, isInCart, removeItem } = useCart();
 
-  const { addItem } = useCart();
-
-  const onAdd = (item, counter) => {
+  const onAdd = (counter) => {
+    console.log("se activo onAdd");
     setFlag(false);
     setCartInner(counter);
-    console.log("item " + item);
     //context
-    setQuantity(counter);
-    setItemForCart(item);
-    addItem();
-    console.log(item);
+    addItem({ item: item.item, cantidad: counter });
+  };
+
+  const deleteItem = () => {
+    removeItem(searchFor);
+    searchItem();
+  };
+
+  const searchItem = (item) => {
+    isInCart(item.item.id);
   };
 
   return (
@@ -43,6 +47,7 @@ function ItemDetail(item) {
             <>
               <p>Productos en el carrito: {cartInner}</p>
               <button>Continuar con la compra</button>
+              <button onClick={deleteItem}>Borrar este objeto del carro</button>
             </>
           )}
         </div>
