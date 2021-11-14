@@ -18,7 +18,6 @@ function ItemDetailContainer() {
         }
       }, 2000);
     });
-
   useEffect(() => {
     getProducto(products)
       .then((res) => setSelectedProduct(res.find((item) => item.id === id)))

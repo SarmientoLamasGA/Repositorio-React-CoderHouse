@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const CartContext = createContext({});
 
@@ -6,35 +6,37 @@ export const useCart = () => useContext(CartContext);
 
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [foundItem, setFoundItem] = useState({});
-  console.log(cart);
 
   const addItem = (itemForCart) => {
-    //isInCart + if + else
-    console.log("se activó addItem");
-    setCart([...cart, itemForCart]);
-    console.log(cart);
+    let id = itemForCart.id;
+    let isInCart = cart.find((itemForCart) => itemForCart.id === id);
+
+    if (isInCart === undefined) {
+      setCart([...cart, itemForCart]);
+    } else {
+      alert("No se aceptan duplicados");
+    }
   };
 
-  const isInCart = (item) => {
-    //t/f
-    console.log(item);
-    setFoundItem(cart.find((item) => item.item.id === item));
-    console.log(foundItem);
-  };
+  const removeItem = (itemToRemove) => {
+    let id = itemToRemove.id;
+    let isInCart = cart.find((itemToRemove) => itemToRemove.id === id);
 
-  const removeItem = () => {
-    //find + splice
+    if (isInCart !== undefined) {
+      setCart(cart.filter((isInCart) => isInCart.id !== id));
+    } else {
+      alert("No existe el producto");
+    }
   };
 
   const clear = () => {
-    //cart[]
+    setCart([]);
   };
 
+  useEffect(() => console.log(cart));
+
   return (
-    <CartContext.Provider
-      value={{ cart, addItem, removeItem, clear, isInCart }}
-    >
+    <CartContext.Provider value={{ cart, addItem, removeItem, clear }}>
       {children}
     </CartContext.Provider>
   );
