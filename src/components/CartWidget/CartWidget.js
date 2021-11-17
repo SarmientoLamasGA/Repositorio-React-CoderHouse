@@ -13,9 +13,9 @@ function CartWidget() {
     <>
       {cart.length ? (
         <>
-          <p>{productosTotal}</p>
           <li className="navItem" id="cartListItem">
             <div className="cartContainer">
+              <p className="totalProd">{productosTotal}</p>
               <img className="cartLogo" src={cartLogo} alt="Logo carrito" />
             </div>
           </li>

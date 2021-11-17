@@ -1,0 +1,69 @@
+.cart {
+  background-color: grey;
+  margin: 0;
+  padding: 25px;
+  .cartTitle {
+    text-align: center;
+  }
+  .cartSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .listSection {
+      width: 100%;
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      .cartList {
+        list-style: none;
+        .itemList {
+          display: flex;
+          .listContainer {
+            width: 100%;
+          }
+          .prodNumber {
+            font-weight: bold;
+          }
+          .prodName {
+            text-decoration: underline;
+          }
+          .prodPrice {
+            color: greenyellow;
+          }
+          .prodQuantity {
+            display: flex;
+            button {
+              align-self: center;
+            }
+          }
+          .prodPriceTotal {
+            color: red;
+          }
+          .prodDelete {
+            display: flex;
+            button {
+              align-self: center;
+            }
+          }
+        }
+      }
+    }
+    .priceSection {
+      width: 30%;
+      .cartPrices {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        .total {
+          text-align: center;
+          font-weight: bold;
+        }
+        .clearButton {
+          align-self: center;
+        }
+      }
+    }
+  }
+}
