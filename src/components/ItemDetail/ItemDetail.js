@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import "./ItemDetail.scss";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { useCart } from "../../contexts/CartContext";
+import "./ItemDetail.scss";
 
 function ItemDetail({ item }) {
   const [flag, setFlag] = useState(true);
   const [cartInner, setCartInner] = useState(0);
 
-  const { addItem, removeItem, clear } = useCart();
+  const { addItem } = useCart();
 
   const onAdd = (counter) => {
     console.log("se activo onAdd");
     setFlag(false);
     setCartInner(counter);
-    //context
     addItem({
       name: item.name,
       quantity: counter,
@@ -21,19 +21,6 @@ function ItemDetail({ item }) {
       photo: item.photo,
       id: item.id,
     });
-  };
-
-  const deleteItem = () => {
-    removeItem({
-      name: item.name,
-      price: item.price,
-      photo: item.photo,
-      id: item.id,
-    });
-  };
-
-  const clearCart = () => {
-    clear();
   };
 
   return (
@@ -55,9 +42,9 @@ function ItemDetail({ item }) {
           ) : (
             <>
               <p>Productos en el carrito: {cartInner}</p>
-              <button>Ir al carro de compras</button>
-              <button onClick={deleteItem}>Borrar este objeto del carro</button>
-              <button onClick={clearCart}>Vaciar carrito</button>
+              <Link to={"/Cart"} key={item.id} item={item}>
+                <button>Ir al carro de compras</button>
+              </Link>
             </>
           )}
         </div>
