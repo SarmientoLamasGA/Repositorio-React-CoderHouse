@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import products from "../../products.json";
-import "./ItemDetailContainer.scss";
+/*import products from "../../products.json";*/
+import { getDoc, doc } from "@firebase/firestore";
+import { getFirestore } from "../../firebase";
 import { useParams } from "react-router";
+import "./ItemDetailContainer.scss";
 
 function ItemDetailContainer() {
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState();
 
-  const getProducto = (catalogo) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (catalogo) {
-          resolve(catalogo);
-        } else {
-          reject("Producto no encontrado");
-        }
-      }, 2000);
-    });
   useEffect(() => {
-    getProducto(products)
-      .then((res) => setSelectedProduct(res.find((item) => item.id === id)))
-      .catch((err) => console.log(err));
+    const db = getFirestore();
+    const item = doc(db, "items", id);
+    getDoc(item).then((snapshot) => {
+      if (snapshot.exists()) {
+        setSelectedProduct(snapshot.data());
+      }
+    });
   }, [id]);
 
   console.log(selectedProduct);
