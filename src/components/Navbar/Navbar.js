@@ -1,8 +1,8 @@
 import React from "react";
 import logo from "../../images/logo.png";
-import "./Navbar.scss";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import "./Navbar.scss";
 
 function Navbar() {
   return (

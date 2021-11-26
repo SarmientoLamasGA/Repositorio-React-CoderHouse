@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import { useParams } from "react-router";
 import { collection, getDocs, query, where } from "@firebase/firestore";
@@ -9,27 +9,7 @@ function ItemList() {
   const [productos, setProductos] = useState([]);
   const { category } = useParams();
 
-  /*const getCatalogo = (catalogo) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (catalogo) {
-          resolve(catalogo);
-        } else {
-          reject("Catalogo no encontrado");
-        }
-      }, 1000);
-    });*/
-
   useEffect(() => {
-    /*getCatalogo(products)
-      .then((res) => {
-        category
-          ? setProductos(res.filter((prod) => prod.category === category))
-          : setProductos(products);
-      })
-      .then(setProductos([]))
-      .catch((err) => console.log(err));*/
-
     const db = getFirestore();
     let q = query(collection(db, "items"));
 

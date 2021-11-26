@@ -46,6 +46,9 @@ function Cart() {
           <div className="priceSection">
             <div className="cartPrices">
               <p className="total">Precio total de: {totalPrice}</p>
+              <Link to={`/checkOut`}>
+                <button className="checkOut">Finalizar compra</button>
+              </Link>
               <button className="clearButton" onClick={clear}>
                 Vaciar carrito
               </button>
@@ -55,7 +58,7 @@ function Cart() {
       ) : (
         <>
           <p>No hay productos en el carrito</p>
-          <Link to={"/"}>
+          <Link to={`/`}>
             <button>Ir al inicio</button>
           </Link>
         </>

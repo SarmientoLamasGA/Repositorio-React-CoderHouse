@@ -1,4 +1,3 @@
-import React from "react";
 import cartLogo from "../../images/cartLogo.svg";
 import { useCart } from "../../contexts/CartContext";
 import "./CartWidget.scss";

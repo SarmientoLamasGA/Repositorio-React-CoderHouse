@@ -1,4 +1,3 @@
-import React from "react";
 import "./ItemListContainer.scss";
 import ItemList from "../ItemList/ItemList";
 
