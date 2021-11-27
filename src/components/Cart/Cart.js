@@ -25,7 +25,7 @@ function Cart() {
                 <th className="listContainer">Vaciar</th>
               </tr>
               {cart.map((prod) => (
-                <td className="itemList">
+                <td className="itemList" key={prod.id}>
                   <td className="listContainer prodNumber">{cart.index}</td>
                   <td className="listContainer prodName">{prod.name}</td>
                   <td className="listContainer prodPrice">{prod.price}</td>

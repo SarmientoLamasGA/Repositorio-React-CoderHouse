@@ -2,54 +2,71 @@ import { useState } from "react";
 import FormInput from "../FormInput/FormInput";
 import { useCart } from "../../contexts/CartContext";
 import { collection, addDoc } from "@firebase/firestore";
-import { getFirebase } from "../../firebase";
+import { getFirestore } from "../../firebase";
 
 function CheckOut() {
-  const { cart } = useCart();
-  const [buyer, setBuyer] = useState({});
+  const { cart, clear } = useCart();
+  const [buyer, setBuyer] = useState({
+    name: "",
+    surName: "",
+    eMail: "",
+    phone: "",
+  });
+  const items = cart;
 
   const date = new Date();
   const orderDate = date.toLocaleDateString();
 
-  const db = getFirebase;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const clientOrder = {
+      client: buyer,
+      items: items,
+      total: cart.reduce(
+        (counter, item) => counter + item.price * item.quantity,
+        0
+      ),
+      date: orderDate,
+    };
 
-  const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      const newOrder = {
-        buyer,
-        cart,
-        totalPrice: cart.reduce(
-          (counter, item) => counter + item.price * item.quantity,
-          0
-        ),
-        date: orderDate,
-      };
-      const results = await addDoc(collection(db, orders)) ;
-      setBuyer({
-        name: ``,
-        surName: ``,
-        eMail: ``,
-        phone: ``,
-      });
-      console.log(results);
-    } catch (error) {
-      console.log(error);
-    }
+    const db = getFirestore();
+    const ordersCollection = collection(db, "orders");
+
+    addDoc(ordersCollection, clientOrder).then(({ id }) => {
+      console.log(id);
+      alert("Compra enviada");
+      clear();
+    });
+    console.log(
+      "Compra usuario" + buyer.name + " " + buyer.surName + " :",
+      items,
+      "Total de: " + clientOrder.total
+    );
+    console.log("submit");
   };
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>Formulario</form>
-      <label>Ingrese nombre</label>
-      <FormInput setBuyer={setBuyer} name="name" buyer={buyer} />
-      <label>Ingrese apellido</label>
-      <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
-      <label>Ingrese eMail</label>
-      <FormInput setBuyer={setBuyer} name="email" buyer={buyer} />
-      <label>Ingrese Telefono</label>
-      <FormInput setBuyer={setBuyer} name="tel" buyer={buyer} />
-      <button type="submit">Confirmar compra</button>
+      <form onSubmit={handleSubmit}>
+        <p>Formulario</p>
+        <label>
+          Ingrese nombre
+          <FormInput setBuyer={setBuyer} name="name" buyer={buyer} />
+        </label>
+        <label>
+          Ingrese apellido
+          <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
+        </label>
+        <label>
+          Ingrese eMail
+          <FormInput setBuyer={setBuyer} name="email" buyer={buyer} />
+        </label>
+        <label>
+          Ingrese Telefono
+          <FormInput setBuyer={setBuyer} name="tel" buyer={buyer} />
+        </label>
+        <button type="submit">Confirmar compra</button>
+      </form>
     </section>
   );
 }

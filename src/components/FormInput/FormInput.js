@@ -1,10 +1,10 @@
 function FormInput({ setBuyer, buyer, name }) {
   const handleBuyerChange = (e) => {
-    setBuyer({ ...buyer, [e.target.value]: e.target.name });
+    setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };
   return (
     <div>
-      <input type="text" value={name} onChange={handleBuyerChange}></input>
+      <input type="text" name={name} onChange={handleBuyerChange}></input>
     </div>
   );
 }
