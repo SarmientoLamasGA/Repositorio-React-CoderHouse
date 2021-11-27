@@ -6,12 +6,7 @@ import { getFirestore } from "../../firebase";
 
 function CheckOut() {
   const { cart, clear } = useCart();
-  const [buyer, setBuyer] = useState({
-    name: "",
-    surName: "",
-    eMail: "",
-    phone: "",
-  });
+  const [buyer, setBuyer] = useState({});
   const items = cart;
 
   const date = new Date();
@@ -19,6 +14,7 @@ function CheckOut() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setBuyer({ name: "", surName: "", eMail: "", phone: "" });
     const clientOrder = {
       client: buyer,
       items: items,
