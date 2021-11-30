@@ -33,16 +33,9 @@ function CheckOut() {
     const ordersCollection = collection(db, "orders");
 
     addDoc(ordersCollection, clientOrder).then(({ id }) => {
-      console.log(id);
       alert("Compra enviada");
       clear();
     });
-    console.log(
-      "Compra usuario" + buyer.name + " " + buyer.surName + " :",
-      items,
-      "Total de: " + clientOrder.total
-    );
-    console.log("submit");
   };
 
   return (
