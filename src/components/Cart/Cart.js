@@ -83,7 +83,7 @@ function Cart() {
                 <div>
                   <p>Estoy seguro:</p>
                   <Link to={`/checkOut`}>
-                    <button className="checkOut">Continuar compra</button>
+                    <button className="checkOutButton">Continuar compra</button>
                   </Link>
                 </div>
               </span>
