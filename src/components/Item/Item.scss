@@ -8,32 +8,32 @@
   border: 1px;
   border-style: solid;
   background-color: white;
-  .productName {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  .imgContainer {
-    display: flex;
-    justify-content: center;
-    .imgProduct {
-      justify-self: center;
-      aspect-ratio: 1/1;
-      height: 100%;
-      width: 100%;
-      min-width: 100px;
-      max-height: 250px;
-      max-width: 250px;
+  .cardLink {
+    color: black;
+    .productName {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
     }
-  }
-  .price {
-    text-align: center;
-    font-weight: bold;
-  }
-  .seeMore {
-    width: 50%;
-    background-color: white;
-    border-color: blue;
-    border-radius: 3px;
+    .imgContainer {
+      display: flex;
+      justify-content: center;
+      .imgProduct {
+        justify-self: center;
+        aspect-ratio: 1/1;
+        height: 100%;
+        width: 100%;
+        min-width: 100px;
+        max-height: 250px;
+        max-width: 250px;
+      }
+    }
+    .price {
+      text-align: center;
+      font-weight: bold;
+    }
+    .seeMore {
+      text-align: center;
+    }
   }
 }
