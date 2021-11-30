@@ -1,20 +1,25 @@
 .cart {
-  background-color: grey;
+  background-color: rgb(202, 240, 248);
   margin: 0;
   padding: 25px;
+  border-top: groove;
+  border-color: rgb(0, 119, 182);
   .cartTitle {
     text-align: center;
   }
   .cartSection {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     .listSection {
       width: 100%;
-      table,
-      th,
+      display: flex;
+      flex-direction: column;
+      tr {
+        border-bottom: 1px solid black;
+      }
       td {
-        border: 1px solid black;
+        border-bottom: 1px solid black;
       }
       .cartList {
         list-style: none;
@@ -22,6 +27,9 @@
           display: flex;
           .listContainer {
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .prodNumber {
             font-weight: bold;
@@ -30,35 +38,110 @@
             text-decoration: underline;
           }
           .prodPrice {
-            color: greenyellow;
+            color: black;
           }
           .prodQuantity {
             display: flex;
+            justify-content: space-evenly;
             button {
               align-self: center;
             }
+            .decrease {
+              cursor: pointer;
+              color: red;
+              width: 25px;
+              border-color: red;
+              background-color: white;
+              border-radius: 3px;
+              font-weight: bold;
+              font-size: 18px;
+              box-shadow: 3px 1px 3px black;
+            }
+            .add {
+              cursor: pointer;
+              color: green;
+              width: 25px;
+              border-color: green;
+              background-color: white;
+              border-radius: 3px;
+              font-weight: bold;
+              font-size: 18px;
+              box-shadow: 3px 1px 3px black;
+            }
           }
           .prodPriceTotal {
-            color: red;
+            color: black;
+            font-weight: bold;
           }
           .prodDelete {
             display: flex;
             button {
-              align-self: center;
+              cursor: pointer;
+              color: black;
+              border-color: red;
+              background-color: white;
+              border-radius: 3px;
+              font-size: 18px;
+              box-shadow: 3px 1px 3px black;
             }
           }
         }
       }
     }
     .priceSection {
+      margin-top: 2.5%;
+      transform: rotate(1deg);
       width: 30%;
       .cartPrices {
         background-color: white;
         display: flex;
         flex-direction: column;
-        .total {
-          text-align: center;
-          font-weight: bold;
+        box-shadow: 3px 1px 3px black;
+        .cartPricesLine {
+          display: flex;
+          justify-content: space-evenly;
+          font-family: "Lucida Handwriting";
+          color: black;
+          border-bottom: rgb(71, 116, 124);
+          border-bottom-style: solid;
+          border-width: 1px;
+        }
+        .cartPricesLastLine {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-family: "Lucida Handwriting";
+          color: black;
+          .total {
+            text-align: center;
+          }
+          .number {
+            text-align: center;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+          }
+        }
+        .cartLineDashed {
+          display: flex;
+          justify-content: space-between;
+          border-top: rgb(71, 116, 124);
+          border-top-style: dashed;
+          padding-bottom: 1%;
+          .divLeft {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            border-right: rgb(71, 116, 124);
+            border-right-style: dashed;
+          }
+          div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+          }
         }
         .clearButton {
           align-self: center;

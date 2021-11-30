@@ -1,5 +1,7 @@
 .itemDetailContainer {
-  background-color: rgb(242, 232, 207);
+  background-color: rgb(202, 240, 248);
+  border-top: groove;
+  border-color: rgb(0, 119, 182);
   text-align: center;
   font-size: 25px;
   margin: 0;
@@ -7,5 +9,10 @@
   .itemDetailContainerTitle {
     margin: 0;
     padding: 1.5%;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 }

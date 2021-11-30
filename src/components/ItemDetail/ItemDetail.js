@@ -43,7 +43,7 @@ function ItemDetail({ item }) {
             <>
               <p>Productos en el carrito: {cartInner}</p>
               <Link to={"/Cart"} key={item.id} item={item}>
-                <button>Ir al carro de compras</button>
+                <button className="buttonToCart">Ir al carro de compras</button>
               </Link>
             </>
           )}

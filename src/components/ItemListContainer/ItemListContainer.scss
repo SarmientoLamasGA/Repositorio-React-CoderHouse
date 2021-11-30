@@ -1,7 +1,7 @@
 .containerList {
-  background-color: rgb(242, 232, 207);
-  border: dotted;
-  border-color: pink;
+  background-color: rgb(202, 240, 248);
+  border-top: groove;
+  border-color: rgb(0, 119, 182);
   display: flex;
   flex-direction: column;
   padding-bottom: 5%;
@@ -9,8 +9,7 @@
     font-size: 30px;
     padding: auto;
     text-align: center;
-    text-decoration: underline;
     text-transform: uppercase;
-    text-decoration-color: red;
+    font-family: "lucida console";
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../images/logo.png";
 import CartWidget from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.scss";
 
 function Navbar() {
@@ -15,13 +15,19 @@ function Navbar() {
       </div>
       <ul className="navList">
         <li className="navItem">
-          <Link to={`/Category/Frutas`}>FRUTAS</Link>
+          <NavLink to={`/Category/Frutas`} activeClassName="active">
+            FRUTAS
+          </NavLink>
         </li>
         <li className="navItem">
-          <Link to={`/Category/Hortalizas`}>HORTALIZAS</Link>
+          <NavLink to={`/Category/Hortalizas`} activeClassName="active">
+            HORTALIZAS
+          </NavLink>
         </li>
         <li className="navItem">
-          <Link to={`/Category/Legumbres`}>LEGUMBRES</Link>
+          <NavLink to={`/Category/Legumbres`} activeClassName="active">
+            LEGUMBRES
+          </NavLink>
         </li>
         <Link className="cartItem" to={`/Cart`}>
           <CartWidget />

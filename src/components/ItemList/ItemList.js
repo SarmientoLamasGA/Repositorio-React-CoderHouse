@@ -26,7 +26,7 @@ function ItemList() {
   }, [category]);
 
   return (
-    <div className="list">
+    <div className="categoryList">
       {productos.length
         ? productos.map((producto) => (
             <Item

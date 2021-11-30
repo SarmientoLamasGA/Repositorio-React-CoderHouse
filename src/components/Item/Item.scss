@@ -1,5 +1,13 @@
 .productCard {
+  width: 30%;
   margin: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px;
+  border-style: solid;
+  background-color: white;
   .productName {
     text-align: center;
     text-transform: uppercase;
@@ -10,15 +18,20 @@
     justify-content: center;
     .imgProduct {
       justify-self: center;
-      height: 250px;
-      width: 250px;
+      aspect-ratio: 1/1;
+      height: 100%;
+      width: 100%;
+      min-width: 100px;
+      max-height: 250px;
+      max-width: 250px;
     }
   }
   .price {
     text-align: center;
+    font-weight: bold;
   }
   .seeMore {
-    width: 100%;
+    width: 50%;
     background-color: white;
     border-color: blue;
     border-radius: 3px;

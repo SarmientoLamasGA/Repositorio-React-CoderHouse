@@ -25,7 +25,9 @@ function ItemDetailContainer() {
     <div className="itemDetailContainer">
       <h1 className="itemDetailContainerTitle">Vista en detalle</h1>
       {selectedProduct ? (
-        <ItemDetail item={selectedProduct} />
+        <div className="list">
+          <ItemDetail item={selectedProduct} />
+        </div>
       ) : (
         "Cargando vista"
       )}

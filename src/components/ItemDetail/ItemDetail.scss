@@ -1,24 +1,30 @@
 .itemContainer {
   display: flex;
-  background-color: rgb(201, 201, 201);
-  padding: 1.5%;
+  background-color: white;
+  border-style: solid;
+  border-color: rgb(0, 119, 182);
+  padding: 0.5%;
   .itemDetailImage {
     height: 400px;
     width: 400px;
-    border-style: solid;
-    border-color: black;
     margin: 2.5%;
+  }
+  .itemDetailName {
+    text-align: center;
+    text-transform: uppercase;
   }
   .itemDetailDescription {
     margin: 2.5%;
     font-size: 20px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-  .itemDetailName {
-    text-align: center;
-    text-transform: uppercase;
-  }
   .itemDetailPrice {
     text-align: center;
+  }
+  .buttonToCart {
+    color: blue;
+    background-color: white;
+    border-color: blue;
+    border-radius: 3px;
   }
 }

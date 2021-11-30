@@ -3,12 +3,16 @@ import FormInput from "../FormInput/FormInput";
 import { useCart } from "../../contexts/CartContext";
 import { collection, addDoc } from "@firebase/firestore";
 import { getFirestore } from "../../firebase";
+import "./CheckOut.scss";
 
 function CheckOut() {
   const { cart, clear } = useCart();
   const [buyer, setBuyer] = useState({});
   const items = cart;
-
+  const totalPrice = cart.reduce(
+    (counter, item) => counter + item.price * item.quantity,
+    0
+  );
   const date = new Date();
   const orderDate = date.toLocaleDateString();
 
@@ -42,27 +46,54 @@ function CheckOut() {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <p>Formulario</p>
-        <label>
-          Ingrese nombre
-          <FormInput setBuyer={setBuyer} name="name" buyer={buyer} />
-        </label>
-        <label>
-          Ingrese apellido
-          <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
-        </label>
-        <label>
-          Ingrese eMail
-          <FormInput setBuyer={setBuyer} name="email" buyer={buyer} />
-        </label>
-        <label>
-          Ingrese Telefono
-          <FormInput setBuyer={setBuyer} name="tel" buyer={buyer} />
-        </label>
-        <button type="submit">Confirmar compra</button>
-      </form>
+    <section className="checkOut">
+      <div className="formSection">
+        <form onSubmit={handleSubmit}>
+          <p>Ingrese sus datos</p>
+          <label>
+            Ingrese nombre
+            <FormInput setBuyer={setBuyer} name="name" buyer={buyer} />
+          </label>
+          <label>
+            Ingrese apellido
+            <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
+          </label>
+          <label>
+            Ingrese eMail
+            <FormInput setBuyer={setBuyer} name="email" buyer={buyer} />
+          </label>
+          <label>
+            Ingrese Telefono
+            <FormInput setBuyer={setBuyer} name="tel" buyer={buyer} />
+          </label>
+          <button type="submit">
+            Confirmar compra <span id="check">✓ </span>
+          </button>
+        </form>
+      </div>
+      <div className="priceSection">
+        <div className="cartPrices">
+          <span className="cartPricesLine">
+            <div className="cartPricesName">
+              <p>Lista de compras</p>
+            </div>
+          </span>
+          {cart.map((prod) => (
+            <span className="cartPricesLine">
+              <div className="cartPricesName">
+                <p>{prod.name}</p>
+              </div>
+              <div className="cartPricesPrice">
+                <p>{prod.price}</p>
+              </div>
+            </span>
+          ))}
+          <span className="cartPricesLastLine">
+            <p className="total">Precio total de:</p>
+            <p className="number">{totalPrice}</p>
+          </span>
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,0 +1,66 @@
+.checkOut {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(202, 240, 248);
+  border-top: groove;
+  border-color: rgb(0, 119, 182);
+  .formSection {
+    background-color: rgb(202, 240, 248);
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      label {
+        margin-top: 1.5%;
+      }
+      button {
+        cursor: pointer;
+        border-color: green;
+        background-color: white;
+        border-radius: 3px;
+        font-weight: bold;
+        margin: 2.5% auto 2.5% auto;
+        #check {
+          color: green;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .priceSection {
+    margin-top: 2.5%;
+    transform: rotate(1deg);
+    width: 30%;
+    .cartPrices {
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 3px 1px 3px black;
+      .cartPricesLine {
+        display: flex;
+        justify-content: space-evenly;
+        font-family: "Lucida Handwriting";
+        color: black;
+        border-bottom: rgb(71, 116, 124);
+        border-bottom-style: solid;
+        border-width: 1px;
+      }
+      .cartPricesLastLine {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Lucida Handwriting";
+        color: black;
+        .total {
+          text-align: center;
+        }
+        .number {
+          text-align: center;
+          font-weight: bold;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

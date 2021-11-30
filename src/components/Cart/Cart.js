@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./Cart.scss";
 
 function Cart() {
-  const { cart, removeItem, removeSingleItem, clear } = useCart();
+  const { cart, removeItem, removeSingleItem, addSingleItem, clear } =
+    useCart();
   const totalPrice = cart.reduce(
     (counter, item) => counter + item.price * item.quantity,
     0
@@ -17,41 +18,75 @@ function Cart() {
           <div className="listSection">
             <table className="cartList">
               <tr className="itemList">
-                <th className="listContainer">Producto</th>
-                <th className="listContainer">Precio x unidad</th>
-                <th className="listContainer">N°</th>
-                <th className="listContainer">Unidades</th>
+                <th className="listContainer prodName">Nombre</th>
+                <th className="listContainer">Precio x unida</th>
+                <th className="listContainer prodQuantity">Unidades</th>
                 <th className="listContainer">Total producto</th>
-                <th className="listContainer">Vaciar</th>
+                <th className="listContainer clearCart">Vaciar</th>
               </tr>
               {cart.map((prod) => (
                 <td className="itemList" key={prod.id}>
-                  <td className="listContainer prodNumber">{cart.index}</td>
-                  <td className="listContainer prodName">{prod.name}</td>
-                  <td className="listContainer prodPrice">{prod.price}</td>
-                  <td className="listContainer prodQuantity">
-                    <button onClick={() => removeSingleItem(prod)}>-</button>
+                  <th className="listContainer prodName">{prod.name}</th>
+                  <th className="listContainer prodPrice">{prod.price}</th>
+                  <th className="listContainer prodQuantity">
+                    <button
+                      className="decrease"
+                      onClick={() => removeSingleItem(prod)}
+                    >
+                      -
+                    </button>
                     <p>{prod.quantity}</p>
-                  </td>
-                  <td className="listContainer prodPriceTotal">
+                    <button className="add" onClick={() => addSingleItem(prod)}>
+                      +
+                    </button>
+                  </th>
+                  <th className="listContainer prodPriceTotal">
                     {prod.price * prod.quantity}
-                  </td>
-                  <td className="listContainer prodDelete">
+                  </th>
+                  <th className="listContainer prodDelete">
                     <button onClick={() => removeItem(prod)}>Eliminar</button>
-                  </td>
+                  </th>
                 </td>
               ))}
             </table>
           </div>
           <div className="priceSection">
             <div className="cartPrices">
-              <p className="total">Precio total de: {totalPrice}</p>
-              <Link to={`/checkOut`}>
-                <button className="checkOut">Finalizar compra</button>
-              </Link>
-              <button className="clearButton" onClick={clear}>
-                Vaciar carrito
-              </button>
+              <span className="cartPricesLine">
+                <div className="cartPricesName">
+                  <p>Lista de compras</p>
+                </div>
+              </span>
+              {cart.map((prod) => (
+                <span className="cartPricesLine">
+                  <div className="cartPricesName">
+                    <p>{prod.name}</p>
+                  </div>
+                  <div className="cartPricesPrice">
+                    <p>{prod.price}</p>
+                  </div>
+                </span>
+              ))}
+              <span className="cartPricesLastLine">
+                <p className="total">Precio total de:</p>
+                <p className="number">{totalPrice}</p>
+              </span>
+              <span className="cartLineDashed">
+                <div className="divLeft">
+                  <p>Me arrepiento:</p>
+                  <Link to={`/`}>
+                    <button className="clearButton" onClick={clear}>
+                      Vaciar carrito
+                    </button>
+                  </Link>
+                </div>
+                <div>
+                  <p>Estoy seguro:</p>
+                  <Link to={`/checkOut`}>
+                    <button className="checkOut">Continuar compra</button>
+                  </Link>
+                </div>
+              </span>
             </div>
           </div>
         </div>
