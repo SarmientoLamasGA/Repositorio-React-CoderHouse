@@ -76,7 +76,13 @@ function CheckOut() {
           </label>
           <label>
             Ingrese Telefono
-            <FormInput setBuyer={setBuyer} name="tel" buyer={buyer} />
+            <FormInput
+              setBuyer={setBuyer}
+              name="tel"
+              buyer={buyer}
+              length={"11"}
+              onlyNumber={"true"}
+            />
           </label>
           <button type="submit">
             Confirmar compra <span id="check">✓ </span>
