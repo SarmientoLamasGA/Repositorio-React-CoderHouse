@@ -16,38 +16,43 @@ function Cart() {
       {cart.length ? (
         <div className="cartSection">
           <div className="listSection">
-            <table className="cartList">
-              <tr className="itemList">
-                <th className="listContainer prodName">Nombre</th>
-                <th className="listContainer">Precio x unida</th>
-                <th className="listContainer prodQuantity">Unidades</th>
-                <th className="listContainer">Total producto</th>
-                <th className="listContainer clearCart">Vaciar</th>
-              </tr>
-              {cart.map((prod) => (
-                <td className="itemList" key={prod.id}>
-                  <th className="listContainer prodName">{prod.name}</th>
-                  <th className="listContainer prodPrice">{prod.price}</th>
-                  <th className="listContainer prodQuantity">
-                    <button
-                      className="decrease"
-                      onClick={() => removeSingleItem(prod)}
-                    >
-                      -
-                    </button>
-                    <p>{prod.quantity}</p>
-                    <button className="add" onClick={() => addSingleItem(prod)}>
-                      +
-                    </button>
-                  </th>
-                  <th className="listContainer prodPriceTotal">
-                    {prod.price * prod.quantity}
-                  </th>
-                  <th className="listContainer prodDelete">
-                    <button onClick={() => removeItem(prod)}>Eliminar</button>
-                  </th>
-                </td>
-              ))}
+            <table className="table">
+              <tbody className="cartList">
+                <tr className="itemList">
+                  <th className="listContainer prodName">Nombre</th>
+                  <th className="listContainer">Precio x unida</th>
+                  <th className="listContainer prodQuantity">Unidades</th>
+                  <th className="listContainer">Total producto</th>
+                  <th className="listContainer clearCart">Vaciar</th>
+                </tr>
+                {cart.map((prod) => (
+                  <tr className="itemList" key={prod.id}>
+                    <td className="listContainer prodName">{prod.name}</td>
+                    <td className="listContainer prodPrice">{prod.price}</td>
+                    <td className="listContainer prodQuantity">
+                      <button
+                        className="decrease"
+                        onClick={() => removeSingleItem(prod)}
+                      >
+                        -
+                      </button>
+                      <p>{prod.quantity}</p>
+                      <button
+                        className="add"
+                        onClick={() => addSingleItem(prod)}
+                      >
+                        +
+                      </button>
+                    </td>
+                    <td className="listContainer prodPriceTotal">
+                      {prod.price * prod.quantity}
+                    </td>
+                    <td className="listContainer prodDelete">
+                      <button onClick={() => removeItem(prod)}>Eliminar</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
           <div className="priceSection">
@@ -58,7 +63,7 @@ function Cart() {
                 </div>
               </span>
               {cart.map((prod) => (
-                <span className="cartPricesLine">
+                <span key={prod.id} className="cartPricesLine">
                   <div className="cartPricesName">
                     <p>{prod.name}</p>
                   </div>

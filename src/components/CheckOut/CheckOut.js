@@ -1,7 +1,13 @@
 import { useState } from "react";
 import FormInput from "../FormInput/FormInput";
 import { useCart } from "../../contexts/CartContext";
-import { collection, addDoc } from "@firebase/firestore";
+import {
+  collection,
+  doc,
+  addDoc,
+  updateDoc,
+  getDoc,
+} from "@firebase/firestore";
 import { getFirestore } from "../../firebase";
 import "./CheckOut.scss";
 
@@ -35,6 +41,19 @@ function CheckOut() {
     addDoc(ordersCollection, clientOrder).then(({ id }) => {
       alert("Compra enviada");
       clear();
+    });
+
+    cart.forEach((prod) => {
+      const prodRef = doc(db, "items", prod.id);
+      try {
+        const prodSel = getDoc(prodRef);
+        console.log(prodSel, "prodsel");
+      } catch (e) {
+        alert("nada");
+      }
+
+      console.log(prod.stock + " stock", prod.quantity + " quantity");
+      updateDoc(prodRef, { stock: prod.stock - prod.quantity });
     });
   };
 

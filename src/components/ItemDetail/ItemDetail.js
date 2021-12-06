@@ -20,6 +20,7 @@ function ItemDetail({ item }) {
       price: item.price,
       photo: item.photo,
       id: item.id,
+      stock: item.stock,
     });
   };
 

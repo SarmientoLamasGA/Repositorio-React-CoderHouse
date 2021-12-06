@@ -15,14 +15,16 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      tr {
-        border-bottom: 1px solid black;
-      }
-      td {
-        border-bottom: 1px solid black;
-      }
       .cartList {
         list-style: none;
+        display: flex;
+        flex-direction: column;
+        tr {
+          border-bottom: 1px solid black;
+        }
+        td {
+          border-bottom: 1px solid black;
+        }
         .itemList {
           display: flex;
           .listContainer {
@@ -126,6 +128,7 @@
           justify-content: space-between;
           border-top: rgb(71, 116, 124);
           border-top-style: dashed;
+          border-top-width: 1px;
           padding-bottom: 1%;
           .divLeft {
             display: flex;
@@ -134,6 +137,7 @@
             width: 50%;
             border-right: rgb(71, 116, 124);
             border-right-style: dashed;
+            border-right-width: 1px;
           }
           div {
             display: flex;

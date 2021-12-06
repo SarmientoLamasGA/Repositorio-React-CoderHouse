@@ -6,7 +6,6 @@ export const useCart = () => useContext(CartContext);
 
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const sethandleItem = useState();
 
   const addItem = (itemForCart) => {
     let id = itemForCart.id;
@@ -30,11 +29,13 @@ function CartProvider({ children }) {
 
   const removeSingleItem = (item) => {
     const itemToDiscount = cart.find((x) => x.id === item.id);
-    sethandleItem(item);
     if (itemToDiscount.quantity > 1) {
       item.quantity = item.quantity - 1;
-      sethandleItem(item);
-      setCart([...cart]);
+      setCart((prev) => {
+        return prev.map((currentItem) => {
+          return currentItem.id === item.id ? item : currentItem;
+        });
+      });
     } else {
       alert("No se pueden quitar mas objetos");
     }
@@ -42,11 +43,13 @@ function CartProvider({ children }) {
 
   const addSingleItem = (item) => {
     const itemToAdd = cart.find((x) => x.id === item.id);
-    sethandleItem(item);
     if (itemToAdd.quantity < 5) {
       item.quantity = item.quantity + 1;
-      sethandleItem(item);
-      setCart([...cart]);
+      setCart((prev) => {
+        return prev.map((currentItem) => {
+          return currentItem.id === item.id ? item : currentItem;
+        });
+      });
     } else {
       alert("No se pueden agregar mas objetos");
     }
