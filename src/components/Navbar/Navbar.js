@@ -29,7 +29,7 @@ function Navbar() {
             LEGUMBRES
           </NavLink>
         </li>
-        <Link to={`/Cart`}>
+        <Link to={`/Cart`} activeClassName="active">
           <CartWidget />
         </Link>
       </ul>
