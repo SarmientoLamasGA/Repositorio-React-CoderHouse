@@ -2,6 +2,7 @@ nav {
   position: relative;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
   background-color: rgb(0, 180, 216);
@@ -13,6 +14,7 @@ nav {
     border-radius: 10px;
     align-self: center;
     background-color: whitesmoke;
+    height: 60px;
     .logoImg {
       max-height: 35px;
       max-width: 35px;
@@ -34,28 +36,66 @@ nav {
     margin-right: 10%;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     .navItem {
-      margin-left: 10px;
-      margin-right: 10px;
-      padding: 0 3px 0 3px;
       display: flex;
-      align-items: center;
-      outline-style: dashed;
-      outline-color: rgb(0, 119, 182);
-      border-radius: 10px;
-      background-color: rgb(202, 240, 248);
+      flex-wrap: wrap;
       a {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 0 3px 0 3px;
+        display: flex;
+        align-items: center;
+        outline-style: dashed;
+        outline-color: rgb(0, 119, 182);
+        border-radius: 10px;
+        background-color: rgb(202, 240, 248);
         font-size: 20px;
         color: black;
         text-decoration: none;
+        height: 60px;
       }
       .active {
-        border-color: rgb(3, 4, 94);
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 0 3px 0 3px;
+        display: flex;
+        align-items: center;
+        outline-style: solid;
+        outline-color: rgb(3, 4, 94);
+        border-radius: 10px;
+        background-color: whitesmoke;
+        height: 60px;
       }
     }
     .cartItem {
       display: flex;
+    }
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    .navList {
+      .navItem {
+        margin: 2.5% auto 2.5% auto;
+      }
+    }
+  }
+  @media only screen and (min-width: 426px) {
+    nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .navList {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+      }
     }
   }
 }
