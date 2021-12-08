@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import { getFirestore } from "../../firebase";
 import "./ItemList.scss";
+import Loading from "../Loading/Loading";
 
 function ItemList() {
   const [productos, setProductos] = useState([]);
@@ -27,17 +28,19 @@ function ItemList() {
 
   return (
     <div className="categoryList">
-      {productos.length
-        ? productos.map((producto) => (
-            <Item
-              key={producto.id}
-              id={producto.id}
-              name={producto.name}
-              photo={producto.photo}
-              price={producto.price}
-            />
-          ))
-        : "Cargando producto"}
+      {productos.length ? (
+        productos.map((producto) => (
+          <Item
+            key={producto.id}
+            id={producto.id}
+            name={producto.name}
+            photo={producto.photo}
+            price={producto.price}
+          />
+        ))
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 }

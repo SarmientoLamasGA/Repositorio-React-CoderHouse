@@ -12,13 +12,9 @@ import { getFirestore } from "../../firebase";
 import "./CheckOut.scss";
 
 function CheckOut() {
-  const { cart, clear } = useCart();
+  const { cart, clear, totalPrice } = useCart();
   const [buyer, setBuyer] = useState({});
   const items = cart;
-  const totalPrice = cart.reduce(
-    (counter, item) => counter + item.price * item.quantity,
-    0
-  );
   const date = new Date();
   const orderDate = date.toLocaleDateString();
 
@@ -55,11 +51,15 @@ function CheckOut() {
         const prodSel = getDoc(prodRef);
         console.log(prodSel, "prodsel");
       } catch (e) {
-        alert("nada");
+        alert("error");
       }
 
       console.log(prod.stock + " stock", prod.quantity + " quantity");
-      updateDoc(prodRef, { stock: prod.stock - prod.quantity });
+      if (prod.stock >= prod.quantity) {
+        updateDoc(prodRef, { stock: prod.stock - prod.quantity });
+      } else {
+        alert("No hay stock suficiente");
+      }
     });
   };
 

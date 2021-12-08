@@ -5,6 +5,7 @@ import { getDoc, doc } from "@firebase/firestore";
 import { getFirestore } from "../../firebase";
 import { useParams } from "react-router";
 import "./ItemDetailContainer.scss";
+import Loading from "../Loading/Loading";
 
 function ItemDetailContainer() {
   const { id } = useParams();
@@ -22,16 +23,18 @@ function ItemDetailContainer() {
 
   console.log(selectedProduct);
   return (
-    <div className="itemDetailContainer">
-      <h1 className="itemDetailContainerTitle">Vista en detalle</h1>
-      {selectedProduct ? (
-        <div className="list">
-          <ItemDetail item={selectedProduct} />
-        </div>
-      ) : (
-        "Cargando vista"
-      )}
-    </div>
+    <>
+      <div className="itemDetailContainer">
+        <h1 className="itemDetailContainerTitle">Vista en detalle</h1>
+        {selectedProduct ? (
+          <div className="list">
+            <ItemDetail item={selectedProduct} />
+          </div>
+        ) : (
+          <Loading />
+        )}
+      </div>
+    </>
   );
 }
 
