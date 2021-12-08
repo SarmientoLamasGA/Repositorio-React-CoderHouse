@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import swal from "sweetalert";
 
 export const CartContext = createContext({});
 
@@ -14,7 +15,7 @@ function CartProvider({ children }) {
     if (isInCart === undefined) {
       setCart([...cart, itemForCart]);
     } else {
-      alert("No se aceptan duplicados");
+      swal("No se aceptan duplicados");
     }
   };
 
@@ -23,7 +24,7 @@ function CartProvider({ children }) {
     if (isInCart !== undefined) {
       setCart(cart.filter((isInCart) => isInCart.id !== item.id));
     } else {
-      alert("No existe el producto");
+      swal("No existe el producto");
     }
   };
 
@@ -37,13 +38,13 @@ function CartProvider({ children }) {
         });
       });
     } else {
-      alert("No se pueden quitar mas objetos");
+      swal("No se pueden quitar mas objetos");
     }
   };
 
   const addSingleItem = (item) => {
     const itemToAdd = cart.find((x) => x.id === item.id);
-    if (itemToAdd.quantity < 5) {
+    if (itemToAdd.quantity < itemToAdd.stock) {
       item.quantity = item.quantity + 1;
       setCart((prev) => {
         return prev.map((currentItem) => {
@@ -51,7 +52,7 @@ function CartProvider({ children }) {
         });
       });
     } else {
-      alert("No se pueden agregar mas objetos");
+      swal("No se pueden agregar mas objetos");
     }
   };
 
