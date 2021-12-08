@@ -35,7 +35,7 @@ function ItemDetail({ item, stockLimit }) {
       <div className="itemDetailDescription">
         <h3 className="itemDetailName">{item.name}</h3>
         <p>{item.description}</p>
-        <p className="itemDetailPrice">Valor por kilo: {item.price}</p>
+        <p className="itemDetailPrice">Valor por unidad: {item.price}</p>
         <div className="productInteractive">
           {flag ? (
             <ItemCount initial={1} stock={stockLimit} onAdd={onAdd} />

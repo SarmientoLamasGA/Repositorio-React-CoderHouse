@@ -23,8 +23,8 @@ function ItemCount(props) {
           </button>
         </div>
         <div className="number">
-          <p>Cantidad de productos: {count} </p>
-          <p>Stock: {props.stock}</p>
+          <p className="quantity">Cantidad de productos: {count} </p>
+          <p className="stock">Stock: {props.stock}</p>
         </div>
         <div className="buttonDiv">
           <button className="sum" onClick={suma}>

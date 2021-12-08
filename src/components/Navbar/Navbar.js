@@ -15,18 +15,18 @@ function Navbar() {
       </div>
       <ul className="navList">
         <li className="navItem">
-          <NavLink to={`/Category/Frutas`} activeClassName="active">
-            FRUTAS
+          <NavLink to={`/Category/Lapices`} activeClassName="active">
+            LAPICES
           </NavLink>
         </li>
         <li className="navItem">
-          <NavLink to={`/Category/Hortalizas`} activeClassName="active">
-            HORTALIZAS
+          <NavLink to={`/Category/Fibras`} activeClassName="active">
+            FIBRAS
           </NavLink>
         </li>
         <li className="navItem">
-          <NavLink to={`/Category/Legumbres`} activeClassName="active">
-            LEGUMBRES
+          <NavLink to={`/Category/Lapiceras`} activeClassName="active">
+            LAPICERAS
           </NavLink>
         </li>
         <Link to={`/Cart`}>

@@ -55,7 +55,6 @@ function CheckOut() {
       } catch (e) {
         swal("error");
       }
-
       updateDoc(prodRef, { stock: prod.stock - prod.quantity });
     });
   };
