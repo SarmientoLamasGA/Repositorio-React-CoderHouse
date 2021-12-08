@@ -4,14 +4,13 @@ import ItemCount from "../ItemCount/ItemCount";
 import { useCart } from "../../contexts/CartContext";
 import "./ItemDetail.scss";
 
-function ItemDetail({ item }) {
+function ItemDetail({ item, stockLimit }) {
   const [flag, setFlag] = useState(true);
   const [cartInner, setCartInner] = useState(0);
 
   const { addItem } = useCart();
 
   const onAdd = (counter) => {
-    console.log("se activo onAdd");
     setFlag(false);
     setCartInner(counter);
     addItem({
@@ -39,7 +38,7 @@ function ItemDetail({ item }) {
         <p className="itemDetailPrice">Valor por kilo: {item.price}</p>
         <div className="productInteractive">
           {flag ? (
-            <ItemCount initial={1} stock={5} onAdd={onAdd} />
+            <ItemCount initial={1} stock={stockLimit} onAdd={onAdd} />
           ) : (
             <>
               <p>Productos en el carrito: {cartInner}</p>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-/*import products from "../../products.json";*/
 import { getDoc, doc } from "@firebase/firestore";
 import { getFirestore } from "../../firebase";
 import { useParams } from "react-router";
@@ -21,14 +20,16 @@ function ItemDetailContainer() {
     });
   }, [id]);
 
-  console.log(selectedProduct);
   return (
     <>
       <div className="itemDetailContainer">
         <h1 className="itemDetailContainerTitle">Vista en detalle</h1>
         {selectedProduct ? (
           <div className="list">
-            <ItemDetail item={selectedProduct} />
+            <ItemDetail
+              item={selectedProduct}
+              stockLimit={selectedProduct.stock}
+            />
           </div>
         ) : (
           <Loading />

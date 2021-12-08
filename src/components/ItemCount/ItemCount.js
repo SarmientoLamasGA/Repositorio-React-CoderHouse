@@ -24,6 +24,7 @@ function ItemCount(props) {
         </div>
         <div className="number">
           <p>Cantidad de productos: {count} </p>
+          <p>Stock: {props.stock}</p>
         </div>
         <div className="buttonDiv">
           <button className="sum" onClick={suma}>
@@ -32,7 +33,11 @@ function ItemCount(props) {
         </div>
       </div>
       <div className="addContainer">
-        <button className="addToCart" onClick={triggerButton}>
+        <button
+          className="addToCart"
+          disabled={props.stock < 1}
+          onClick={triggerButton}
+        >
           Agregar al carrito
         </button>
       </div>
