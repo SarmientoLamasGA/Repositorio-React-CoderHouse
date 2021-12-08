@@ -11,6 +11,7 @@ import {
 import { getFirestore } from "../../firebase";
 import "./CheckOut.scss";
 import EmptyCart from "../EmptyCart/EmptyCart";
+import swal from "sweetalert";
 
 function CheckOut() {
   const { cart, clear, totalPrice } = useCart();
@@ -42,7 +43,7 @@ function CheckOut() {
     const ordersCollection = collection(db, "orders");
 
     addDoc(ordersCollection, clientOrder).then(({ id }) => {
-      alert("Compra enviada");
+      swal("Compra enviada");
       clear();
     });
 
@@ -52,7 +53,7 @@ function CheckOut() {
         const prodSel = getDoc(prodRef);
         console.log(prodSel, "prodsel");
       } catch (e) {
-        alert("error");
+        swal("error");
       }
 
       updateDoc(prodRef, { stock: prod.stock - prod.quantity });
