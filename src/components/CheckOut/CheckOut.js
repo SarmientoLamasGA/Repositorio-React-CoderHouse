@@ -17,7 +17,7 @@ function CheckOut() {
   const [buyer, setBuyer] = useState({});
   const items = cart;
   const date = new Date();
-  const orderDate = date.toLocaleDateString();
+  const orderDate = date.toLocaleTimeString();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,12 +50,7 @@ function CheckOut() {
         alert("error");
       }
 
-      console.log(prod.stock + " stock", prod.quantity + " quantity");
-      if (prod.stock >= prod.quantity) {
-        updateDoc(prodRef, { stock: prod.stock - prod.quantity });
-      } else {
-        alert("No hay stock suficiente");
-      }
+      updateDoc(prodRef, { stock: prod.stock - prod.quantity });
     });
   };
 
