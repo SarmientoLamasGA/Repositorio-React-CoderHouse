@@ -38,7 +38,6 @@ function CheckOut() {
       date: orderDate,
     };
 
-    console.log(buyer, "buyer");
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
 
@@ -51,7 +50,6 @@ function CheckOut() {
       const prodRef = doc(db, "items", prod.id);
       try {
         const prodSel = getDoc(prodRef);
-        console.log(prodSel, "prodsel");
       } catch (e) {
         swal("error");
       }
