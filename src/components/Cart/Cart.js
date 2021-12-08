@@ -1,6 +1,7 @@
 import { useCart } from "../../contexts/CartContext";
 import { Link } from "react-router-dom";
 import "./Cart.scss";
+import EmptyCart from "../EmptyCart/EmptyCart";
 
 function Cart() {
   const { cart, removeItem, removeSingleItem, addSingleItem, clear } =
@@ -96,12 +97,7 @@ function Cart() {
           </div>
         </div>
       ) : (
-        <>
-          <p>No hay productos en el carrito</p>
-          <Link to={`/`}>
-            <button>Ir al inicio</button>
-          </Link>
-        </>
+        <EmptyCart />
       )}
     </section>
   );

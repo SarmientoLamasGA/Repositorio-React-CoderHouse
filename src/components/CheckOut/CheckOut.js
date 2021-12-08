@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormInput from "../FormInput/FormInput";
+import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import {
   collection,
@@ -10,6 +11,7 @@ import {
 } from "@firebase/firestore";
 import { getFirestore } from "../../firebase";
 import "./CheckOut.scss";
+import EmptyCart from "../EmptyCart/EmptyCart";
 
 function CheckOut() {
   const { cart, clear, totalPrice } = useCart();
@@ -65,74 +67,80 @@ function CheckOut() {
 
   return (
     <section className="checkOut">
-      <div className="formSection">
-        <form onSubmit={handleSubmit}>
-          <p>Ingrese sus datos</p>
-          <label>
-            Ingrese nombre
-            <FormInput
-              onChange={handleBuyerChange}
-              setBuyer={setBuyer}
-              name="name"
-              buyer={buyer}
-            />
-          </label>
-          <label>
-            Ingrese apellido
-            <FormInput
-              onChange={handleBuyerChange}
-              setBuyer={setBuyer}
-              name="surname"
-              buyer={buyer}
-            />
-          </label>
-          <label>
-            Ingrese eMail
-            <FormInput
-              onChange={handleBuyerChange}
-              setBuyer={setBuyer}
-              name="email"
-              buyer={buyer}
-            />
-          </label>
-          <label>
-            Ingrese Telefono
-            <FormInput
-              onChange={handleBuyerChange}
-              setBuyer={setBuyer}
-              name="tel"
-              buyer={buyer}
-              length={"11"}
-            />
-          </label>
-          <button type="submit">
-            Confirmar compra <span id="check">✓ </span>
-          </button>
-        </form>
-      </div>
-      <div className="priceSection">
-        <div className="cartPrices">
-          <span className="cartPricesLine">
-            <div className="cartPricesName">
-              <p>Lista de compras</p>
+      {cart.length ? (
+        <>
+          <div className="formSection">
+            <form onSubmit={handleSubmit}>
+              <h1 className="formTitle">Ingrese sus datos</h1>
+              <label>
+                Ingrese nombre
+                <FormInput
+                  onChange={handleBuyerChange}
+                  setBuyer={setBuyer}
+                  name="name"
+                  buyer={buyer}
+                />
+              </label>
+              <label>
+                Ingrese apellido
+                <FormInput
+                  onChange={handleBuyerChange}
+                  setBuyer={setBuyer}
+                  name="surname"
+                  buyer={buyer}
+                />
+              </label>
+              <label>
+                Ingrese eMail
+                <FormInput
+                  onChange={handleBuyerChange}
+                  setBuyer={setBuyer}
+                  name="email"
+                  buyer={buyer}
+                />
+              </label>
+              <label>
+                Ingrese Telefono
+                <FormInput
+                  onChange={handleBuyerChange}
+                  setBuyer={setBuyer}
+                  name="tel"
+                  buyer={buyer}
+                  length={"11"}
+                />
+              </label>
+              <button type="submit">
+                Confirmar compra <span id="check">✓ </span>
+              </button>
+            </form>
+          </div>
+          <div className="priceSection">
+            <div className="cartPrices">
+              <span className="cartPricesLine">
+                <div className="cartPricesName">
+                  <p>Lista de compras</p>
+                </div>
+              </span>
+              {cart.map((prod) => (
+                <span className="cartPricesLine">
+                  <div className="cartPricesName">
+                    <p>{prod.name}</p>
+                  </div>
+                  <div className="cartPricesPrice">
+                    <p>{prod.price}</p>
+                  </div>
+                </span>
+              ))}
+              <span className="cartPricesLastLine">
+                <p className="total">Precio total de:</p>
+                <p className="number">{totalPrice}</p>
+              </span>
             </div>
-          </span>
-          {cart.map((prod) => (
-            <span className="cartPricesLine">
-              <div className="cartPricesName">
-                <p>{prod.name}</p>
-              </div>
-              <div className="cartPricesPrice">
-                <p>{prod.price}</p>
-              </div>
-            </span>
-          ))}
-          <span className="cartPricesLastLine">
-            <p className="total">Precio total de:</p>
-            <p className="number">{totalPrice}</p>
-          </span>
-        </div>
-      </div>
+          </div>
+        </>
+      ) : (
+        <EmptyCart />
+      )}
     </section>
   );
 }
