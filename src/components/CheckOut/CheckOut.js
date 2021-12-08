@@ -1,6 +1,5 @@
 import { useState } from "react";
 import FormInput from "../FormInput/FormInput";
-import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import {
   collection,
@@ -19,11 +18,6 @@ function CheckOut() {
   const items = cart;
   const date = new Date();
   const orderDate = date.toLocaleDateString();
-
-  const handleBuyerChange = (e) => {
-    setBuyer({ ...buyer, [e.target.name]: e.target.value });
-    console.log(setBuyer);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,42 +68,31 @@ function CheckOut() {
               <h1 className="formTitle">Ingrese sus datos</h1>
               <label>
                 Ingrese nombre
-                <FormInput
-                  onChange={handleBuyerChange}
-                  setBuyer={setBuyer}
-                  name="name"
-                  buyer={buyer}
-                />
+                <FormInput setBuyer={setBuyer} name="name" buyer={buyer} />
               </label>
               <label>
                 Ingrese apellido
-                <FormInput
-                  onChange={handleBuyerChange}
-                  setBuyer={setBuyer}
-                  name="surname"
-                  buyer={buyer}
-                />
+                <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
               </label>
               <label>
                 Ingrese eMail
-                <FormInput
-                  onChange={handleBuyerChange}
-                  setBuyer={setBuyer}
-                  name="email"
-                  buyer={buyer}
-                />
+                <FormInput setBuyer={setBuyer} name="email" buyer={buyer} />
               </label>
               <label>
                 Ingrese Telefono
                 <FormInput
-                  onChange={handleBuyerChange}
                   setBuyer={setBuyer}
                   name="tel"
                   buyer={buyer}
                   length={"11"}
                 />
               </label>
-              <button type="submit">
+              <button
+                type="submit"
+                disabled={
+                  !(buyer.name && buyer.surName && buyer.email && buyer.phone)
+                }
+              >
                 Confirmar compra <span id="check">✓ </span>
               </button>
             </form>
