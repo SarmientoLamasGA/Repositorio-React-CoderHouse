@@ -1,15 +1,7 @@
-function FormInput({ setBuyer, buyer, name, length }) {
-  const handleBuyerChange = (e) => {
-    setBuyer({ ...buyer, [e.target.name]: e.target.value });
-  };
+function FormInput({ name, length }) {
   return (
     <div>
-      <input
-        type="text"
-        name={name}
-        onChange={handleBuyerChange}
-        maxLength={length}
-      ></input>
+      <input type="text" name={name} maxLength={length}></input>
     </div>
   );
 }

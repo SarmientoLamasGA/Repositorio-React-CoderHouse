@@ -22,6 +22,11 @@ function CheckOut() {
   const date = new Date();
   const orderDate = date.toLocaleDateString();
 
+  const handleBuyerChange = (e) => {
+    setBuyer({ ...buyer, [e.target.name]: e.target.value });
+    console.log(setBuyer);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setBuyer({ name: "", surName: "", eMail: "", phone: "" });
@@ -35,6 +40,7 @@ function CheckOut() {
       date: orderDate,
     };
 
+    console.log(buyer, "buyer");
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
 
@@ -64,24 +70,39 @@ function CheckOut() {
           <p>Ingrese sus datos</p>
           <label>
             Ingrese nombre
-            <FormInput setBuyer={setBuyer} name="name" buyer={buyer} />
+            <FormInput
+              onChange={handleBuyerChange}
+              setBuyer={setBuyer}
+              name="name"
+              buyer={buyer}
+            />
           </label>
           <label>
             Ingrese apellido
-            <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
+            <FormInput
+              onChange={handleBuyerChange}
+              setBuyer={setBuyer}
+              name="surname"
+              buyer={buyer}
+            />
           </label>
           <label>
             Ingrese eMail
-            <FormInput setBuyer={setBuyer} name="email" buyer={buyer} />
+            <FormInput
+              onChange={handleBuyerChange}
+              setBuyer={setBuyer}
+              name="email"
+              buyer={buyer}
+            />
           </label>
           <label>
             Ingrese Telefono
             <FormInput
+              onChange={handleBuyerChange}
               setBuyer={setBuyer}
               name="tel"
               buyer={buyer}
               length={"11"}
-              onlyNumber={"true"}
             />
           </label>
           <button type="submit">
