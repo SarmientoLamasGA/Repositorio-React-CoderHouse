@@ -1,6 +1,7 @@
 function FormInput({ buyer, name, setBuyer, length }) {
   const handleBuyerChange = (e) => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
+    console.log(buyer);
   };
   return (
     <div>

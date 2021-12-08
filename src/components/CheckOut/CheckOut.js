@@ -14,14 +14,19 @@ import EmptyCart from "../EmptyCart/EmptyCart";
 
 function CheckOut() {
   const { cart, clear, totalPrice } = useCart();
-  const [buyer, setBuyer] = useState({});
+  const [buyer, setBuyer] = useState({
+    name: "",
+    surName: "",
+    email: "",
+    tel: "",
+  });
   const items = cart;
   const date = new Date();
   const orderDate = date.toLocaleTimeString();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setBuyer({ name: "", surName: "", eMail: "", phone: "" });
+    setBuyer({ name: "", surName: "", eMail: "", tel: "" });
     const clientOrder = {
       client: buyer,
       items: items,
@@ -67,7 +72,7 @@ function CheckOut() {
               </label>
               <label>
                 Ingrese apellido
-                <FormInput setBuyer={setBuyer} name="surname" buyer={buyer} />
+                <FormInput setBuyer={setBuyer} name="surName" buyer={buyer} />
               </label>
               <label>
                 Ingrese eMail
@@ -85,7 +90,7 @@ function CheckOut() {
               <button
                 type="submit"
                 disabled={
-                  !(buyer.name && buyer.surName && buyer.email && buyer.phone)
+                  !(buyer.name && buyer.surName && buyer.email && buyer.tel)
                 }
               >
                 Confirmar compra <span id="check">✓ </span>
