@@ -166,3 +166,12 @@
     }
   }
 }
+.emptyCart {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(202, 240, 248);
+  border-top: groove;
+  border-color: rgb(0, 119, 182);
+  height: 100%;
+  padding-bottom: 9vh;
+}

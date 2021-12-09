@@ -103,7 +103,7 @@ function Cart() {
           </div>
         </section>
       ) : (
-        <section>
+        <section className="emptyCart">
           <EmptyCart />
         </section>
       )}
