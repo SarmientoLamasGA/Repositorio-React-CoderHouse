@@ -15,10 +15,6 @@ function Footer() {
               src="https://cdn.worldvectorlogo.com/logos/instagram-glyph-1.svg"
               alt="Instagram logo"
             ></img>
-            <img
-              src="https://cdn-icons.flaticon.com/png/512/3128/premium/3128212.png?token=exp=1638836081~hmac=dcc48f5583a933cc06dde9645515c905"
-              alt="Twitter Logo"
-            ></img>
           </div>
         </div>
       </div>
