@@ -50,6 +50,7 @@ function CheckOut() {
       const prodRef = doc(db, "items", prod.id);
       try {
         const prodSel = getDoc(prodRef);
+        console.log(prodSel, "prodsel");
       } catch (e) {
         swal("error");
       }
